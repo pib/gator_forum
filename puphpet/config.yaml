@@ -12,6 +12,12 @@ vagrantfile-local:
                 RbkDE7dbxglx:
                     host: '5453'
                     guest: '22'
+                qOFz2kbcV6Ck:
+                    host: '8080'
+                    guest: '80'
+                owU3gXXohXS0:
+                    host: '1080'
+                    guest: '1080'
         provider:
             virtualbox:
                 modifyvm:
@@ -34,7 +40,7 @@ vagrantfile-local:
         synced_folder:
             P6CLPErw0B3y:
                 source: ./
-                target: /var/www
+                target: /var/www/gator
                 sync_type: default
                 rsync:
                     args: '-z'
@@ -88,7 +94,7 @@ apache:
             servername: gator.dev
             serveraliases:
                 - www.gator.dev
-            docroot: /var/www
+            docroot: /var/www/gator
             port: '80'
             setenv:
                 - 'APP_ENV dev'
@@ -167,7 +173,7 @@ mysql:
             host: localhost
             user: gator
             password: '123'
-            sql_file: /var/www/install/schemas/mysql_41_schema.sql
+            sql_file: /var/www/gator/install/schemas/mysql_41_schema.sql
 postgresql:
     install: 0
     settings:

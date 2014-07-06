@@ -1,3 +1,6 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
 require 'yaml'
 
 dir = File.dirname(File.expand_path(__FILE__))
