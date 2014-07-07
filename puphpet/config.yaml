@@ -99,6 +99,11 @@ apache:
             port: '80'
             setenv:
                 - 'APP_ENV dev'
+                - 'RDS_HOSTNAME localhost'
+                - 'RDS_USERNAME gator'
+                - 'RDS_PASSWORD 123'
+                - 'RDS_DB_NAME gator'
+                - 'RDS_PORT 3306'
             override:
                 - All
             options:
