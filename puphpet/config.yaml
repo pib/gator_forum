@@ -146,6 +146,7 @@ php:
             - mcrypt
             - imagick
             - gd
+            - curl
         pear: {  }
         pecl:
             - pecl_http

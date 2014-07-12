@@ -14,3 +14,9 @@ $load_extensions = '';
 @define('PHPBB_INSTALLED', true);
 // @define('DEBUG', true);
 // @define('DEBUG_EXTRA', true);
+
+require_once __DIR__ . '/aws/aws-autoloader.php';
+
+use Aws\S3\S3Client;
+$s3_client = S3Client::factory();
+$s3_client->registerStreamWrapper();
