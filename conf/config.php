@@ -18,6 +18,7 @@ $Configuration['EnabledPlugins']['GettingStarted'] = 'GettingStarted';
 $Configuration['EnabledPlugins']['HtmLawed'] = 'HtmLawed';
 $Configuration['EnabledPlugins']['ButtonBar'] = TRUE;
 $Configuration['EnabledPlugins']['VanillaStats'] = TRUE;
+$Configuration['EnabledPlugins']['FileUpload'] = TRUE;
 
 // Garden
 $Configuration['Garden']['Title'] = 'GATOR';
