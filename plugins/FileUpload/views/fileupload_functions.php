@@ -5,7 +5,12 @@ function MediaThumbnail($Media, $Data = FALSE) {
    
       if (GetValue('ThumbPath', $Media)) {
          $Src = Gdn_Upload::Url(ltrim(GetValue('ThumbPath', $Media), '/'));
-      } else {
+           $Width =   GetValue('ThumbWidth', $Media);
+           $Height =  GetValue('ThumbHeight', $Media);
+
+
+
+        } else {
          $Width = GetValue('ImageWidth', $Media);
          $Height = GetValue('ImageHeight', $Media);
 
@@ -26,16 +31,23 @@ function MediaThumbnail($Media, $Data = FALSE) {
 
          $Path = ltrim(GetValue('Path', $Media), '/');
          if ($RequiresThumbnail) {
+             $Width =   GetValue('ThumbWidth', $Media);
+             $Height =  GetValue('ThumbHeight', $Media);
             $Src = Url('/utility/thumbnail/'.GetValue('MediaID', $Media, 'x').'/'.$Path, TRUE);
          } else {
-            $Src = Gdn_Upload::Url($Path);
-         }
+            $Src = Gdn_Upload::Url($Path);  
+              $Width =   GetValue('ImageWidth', $Media);
+              $Height =  GetValue('ImageHeight', $Media);
+        }
       }
-      if ($Data)
-         $Result = array('src' => $Src, 'width' => GetValue('ThumbWidth', $Media), 'height' => GetValue('ThumbHeight', $Media));
-      else
-         $Result = Img($Src, array('class' => 'ImageThumbnail', 'width' => GetValue('ThumbWidth', $Media), 'height' => GetValue('ThumbHeight', $Media)));
+      if ($Data) {
+      //   $Result = array('src' => $Src, 'width' => GetValue('ThumbWidth', $Media), 'height' => GetValue('ThumbHeight', $Media));
+          $Result = Img($Src, array('class' => 'ImageThumbnail', 'width' => $Width, 'height' => $Height)); 
+      }  else {
+        // $Result = Img($Src, array('class' => 'ImageThumbnail', 'width' => GetValue('ThumbWidth', $Media), 'height' => GetValue('ThumbHeight', $Media)));
       
+      $Result = Img($Src, array('class' => 'ImageThumbnail', 'width' => $Width, 'height' => $Height)); 
+     }
       return $Result;
    
 }
