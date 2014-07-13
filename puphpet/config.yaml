@@ -62,6 +62,7 @@ vagrantfile-local:
 server:
     packages:
         - imagemagick
+        - s3ql
     dot_files:
         -
             bash_aliases: null
@@ -150,6 +151,7 @@ php:
         pear: {  }
         pecl:
             - pecl_http
+            - PDO_MYSQL
     ini:
         display_errors: On
         error_reporting: '-1'
