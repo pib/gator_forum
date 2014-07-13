@@ -1,4 +1,3 @@
 puphpet/files/dot/ssh/*
 .vagrant
-cache/*
 .elasticbeanstalk/
