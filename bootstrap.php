@@ -1,5 +1,14 @@
 <?php if (!defined('APPLICATION')) exit();
 
+
+// Load AWS libs so we can pull/store config on S3
+require_once(PATH_ROOT . '/library/vendors/aws/aws-autoloader.php');
+
+// Register S3 Stream wrapper
+use Aws\S3\S3Client;
+$s3_client = S3Client::factory();
+$s3_client->registerStreamWrapper();
+
 /**
  * Bootstrap Before
  * 
@@ -47,7 +56,8 @@ Gdn::FactoryInstall(Gdn::AliasConfig, 'Gdn_Configuration');
 Gdn::Config()->Load(PATH_CONF.'/config-defaults.php');
 
 // Load installation-specific configuration so that we know what apps are enabled
-Gdn::Config()->Load(PATH_CONF.'/config.php', 'Configuration', TRUE);
+//Gdn::Config()->Load(PATH_CONF.'/config.php', 'Configuration', TRUE);
+Gdn::Config()->Load('s3://gator-config/config.php', 'Configuration', TRUE);
 
 Gdn::Config()->Caching(TRUE);
 
