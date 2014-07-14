@@ -1,3 +1,5 @@
+<?php
+
 // This plugin is very-much hard-coded for this specific setup. It
 // could be made to be configurable instead, but I can't be arsed to
 // do that right now.
