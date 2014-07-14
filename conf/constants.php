@@ -8,7 +8,8 @@ define('PATH_APPLICATIONS', PATH_ROOT.'/applications');
 define('PATH_CACHE', PATH_ROOT.'/cache');
 define('PATH_PLUGINS', PATH_ROOT.'/plugins');
 define('PATH_THEMES', PATH_ROOT.'/themes');
-define('PATH_UPLOADS', PATH_ROOT.'/uploads');
+//define('PATH_UPLOADS', PATH_ROOT.'/uploads');
+define('PATH_UPLOADS', 's3://gator-uploads/uploads');
 define('PATH_LIBRARY', PATH_ROOT.'/library');
 define('PATH_LIBRARY_CORE', PATH_LIBRARY.'/core');
 
