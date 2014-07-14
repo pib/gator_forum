@@ -22,13 +22,13 @@ class S3Uploads extends Gdn_Plugin {
         return 's3://gator-uploads/' . $name;
     }
     public function Gdn_Upload_GetUrls_Handler(&$Sender) {
-        $Sender->EventArguments['Urls'][''] = 'http://s3.amazonaws.com/gator-uploads'
+        $Sender->EventArguments['Urls'][''] = 'http://s3.amazonaws.com/gator-uploads';
     }
 
     public function Gdn_Upload_SaveAs_Handler(&$Sender) {
         $source = $Sender->EventArguments['Path'];
         $name = $Sender->EventArguments['Parsed']['Name'];
-        $dest = $this->remote_path($name;)
+        $dest = $this->remote_path($name);
 
         copy($source, $dest);
         unlink($source);
