@@ -65,7 +65,7 @@ function WriteS3Config($options) {
     'WrapPHP'      => TRUE,
     'ByLine'       => TRUE
   ));
-  file_put_contents('s3://gator-config/config.php');
+  file_put_contents('s3://gator-config/config.php', $FileContents);
   return TRUE;
 }
 $configString = file_get_contents('s3://gator-config/config.php');
