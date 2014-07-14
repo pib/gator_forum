@@ -57,7 +57,19 @@ Gdn::Config()->Load(PATH_CONF.'/config-defaults.php');
 
 // Load installation-specific configuration so that we know what apps are enabled
 //Gdn::Config()->Load(PATH_CONF.'/config.php', 'Configuration', TRUE);
-Gdn::Config()->Load('s3://gator-config/config.php', 'Configuration', TRUE);
+
+function WriteS3Config($options) {
+  $config = $options['ConfigData'];
+  $FileContents = Gdn_Configuration::Format($config, array(
+    'VariableName' => 'Configuration',
+    'WrapPHP'      => TRUE,
+    'ByLine'       => TRUE
+  ));
+  file_put_contents('s3://gator-config/config.php');
+  return TRUE;
+}
+$configString = file_get_contents('s3://gator-config/config.php');
+Gdn::Config()->LoadString($configString, 'S3', 'Configuration', TRUE, 'WriteS3Config');
 
 Gdn::Config()->Caching(TRUE);
 
