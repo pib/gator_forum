@@ -38,8 +38,13 @@ class S3Uploads extends Gdn_Plugin {
     }
 
     public function Gdn_Upload_CopyLocal_Handler(&$Sender) {
+        $name = $Sender->EventArguments['Parsed']['Name'];
         $remote_path = $this->remote_path($name);
-        $local_path = PATH_UPLOADS . '/' . $Sender->EventArguments['Parsed']['Name'];
+        $local_path = PATH_UPLOADS . '/' . $name;
+        $dir = dirname($local_path);
+        if (!file_exists($dir)) {
+            mkdir($dir);
+        }
         copy($remote_path, $local_path);
         $Sender->EventArguments['Path'] = $local_path;
         return TRUE;
