@@ -4,11 +4,12 @@
 // Load AWS libs so we can pull/store config on S3
 require_once(PATH_ROOT . '/library/vendors/aws/aws-autoloader.php');
 
-// Register S3 Stream wrapper
 use Aws\S3\S3Client;
-$s3_client = S3Client::factory();
-$s3_client->registerStreamWrapper();
-
+if (getenv('APP_ENV') != 'dev') {
+    // Register S3 Stream wrapper
+    $s3_client = S3Client::factory();
+    $s3_client->registerStreamWrapper();
+}
 /**
  * Bootstrap Before
  * 
@@ -56,20 +57,22 @@ Gdn::FactoryInstall(Gdn::AliasConfig, 'Gdn_Configuration');
 Gdn::Config()->Load(PATH_CONF.'/config-defaults.php');
 
 // Load installation-specific configuration so that we know what apps are enabled
-//Gdn::Config()->Load(PATH_CONF.'/config.php', 'Configuration', TRUE);
-
-function WriteS3Config($options) {
-  $config = $options['ConfigData'];
-  $FileContents = Gdn_Configuration::Format($config, array(
-    'VariableName' => 'Configuration',
-    'WrapPHP'      => TRUE,
-    'ByLine'       => TRUE
-  ));
-  file_put_contents('s3://gator-config/config.php', $FileContents);
-  return TRUE;
+if (getenv('APP_ENV') == 'dev') {
+    Gdn::Config()->Load(PATH_CONF.'/config.php', 'Configuration', TRUE);
+} else {
+    function WriteS3Config($options) {
+        $config = $options['ConfigData'];
+        $FileContents = Gdn_Configuration::Format($config, array(
+            'VariableName' => 'Configuration',
+            'WrapPHP'      => TRUE,
+            'ByLine'       => TRUE
+        ));
+        file_put_contents('s3://gator-config/config.php', $FileContents);
+        return TRUE;
+    }
+    $configString = file_get_contents('s3://gator-config/config.php');
+    Gdn::Config()->LoadString($configString, 'S3', 'Configuration', TRUE, 'WriteS3Config');
 }
-$configString = file_get_contents('s3://gator-config/config.php');
-Gdn::Config()->LoadString($configString, 'S3', 'Configuration', TRUE, 'WriteS3Config');
 
 Gdn::Config()->Caching(TRUE);
 
