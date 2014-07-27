@@ -14,7 +14,7 @@ vagrantfile-local:
                     guest: '22'
                 qOFz2kbcV6Ck:
                     host: '8080'
-                    guest: '80'
+                    guest: '8080'
                 owU3gXXohXS0:
                     host: '1080'
                     guest: '1080'
@@ -97,7 +97,7 @@ apache:
             serveraliases:
                 - www.gator.dev
             docroot: /var/www/gator
-            port: '80'
+            port: '8080'
             setenv:
                 - 'APP_ENV dev'
                 - 'RDS_HOSTNAME localhost'
