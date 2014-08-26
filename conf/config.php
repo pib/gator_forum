@@ -25,7 +25,7 @@ $Configuration['EnabledPlugins']['ProfileExtender'] = TRUE;
 $Configuration['Garden']['Title'] = 'GATOR';
 $Configuration['Garden']['Cookie']['Salt'] = 'LTQXK4FMM2';
 $Configuration['Garden']['Cookie']['Domain'] = '';
-$Configuration['Garden']['Registration']['ConfirmEmail'] = FALSE;
+$Configuration['Garden']['Registration']['ConfirmEmail'] = TRUE;
 $Configuration['Garden']['Registration']['ApplicantRoleID'] = 0;
 $Configuration['Garden']['Registration']['ConfirmEmailRole'] = '';
 $Configuration['Garden']['Registration']['DefaultRoles'] = array('2');
@@ -48,8 +48,11 @@ $Configuration['Garden']['InstallationSecret'] = FALSE;
 $Configuration['Garden']['Analytics']['AllowLocal'] = TRUE;
 $Configuration['Garden']['Theme'] = 'bootstrap';
 $Configuration['Garden']['ThemeOptions']['Name'] = 'Bootstrap';
-$Configuration['Garden']['ThemeOptions']['Styles']['Key'] = 'Readable';
-$Configuration['Garden']['ThemeOptions']['Styles']['Value'] = '%s_readable';
+$Configuration['Garden']['ThemeOptions']['Styles']['Key'] = 'Sandstone';
+$Configuration['Garden']['ThemeOptions']['Styles']['Value'] = '%s_sandstone';
+$Configuration['Garden']['HomepageTitle'] = 'GATOR';
+$Configuration['Garden']['Description'] = '';
+$Configuration['Garden']['Logo'] = 'LBHQZASTDOYA.jpg';
 
 // Plugins
 $Configuration['Plugins']['GettingStarted']['Dashboard'] = '1';
@@ -62,7 +65,7 @@ $Configuration['Plugins']['ProfileExtender']['RegistrationFields'] = 'Location';
 $Configuration['Plugins']['ProfileExtender']['TextMaxLength'] = 140;
 
 // Routes
-$Configuration['Routes']['DefaultController'] = array('categories', 'Internal');
+$Configuration['Routes']['DefaultController'] = 'discussions';
 
 // Vanilla
 $Configuration['Vanilla']['Version'] = '2.1';
@@ -72,4 +75,4 @@ $Configuration['Vanilla']['Categories']['MaxDisplayDepth'] = '3';
 $Configuration['Vanilla']['Categories']['DoHeadings'] = '1';
 $Configuration['Vanilla']['Categories']['HideModule'] = FALSE;
 
-// Last edited by pib (10.0.2.2)2014-07-27 02:48:13
+// Last edited by pib (10.0.2.2)2014-08-26 03:11:10

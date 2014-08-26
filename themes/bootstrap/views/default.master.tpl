@@ -11,13 +11,13 @@
       <div class="container">
 
         <div class="navbar-header">
+          <a class="navbar-brand" href="{link path="home"}">{logo}</a>
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only">{t c="Toggle navigation"}</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="{link path="home"}">{logo}</a>
         </div>
 
         <div class="navbar-collapse collapse">
@@ -67,7 +67,7 @@
     <footer class="page-footer sticky-footer">
       <div class="container">
         <div class="clearfix">
-          <p class="pull-left">{t c="Copyright"} &copy; {$smarty.now|date_format:"%Y"} <a href="{link path="home"}">{logo}</a></p>
+          <p class="pull-left">{t c="Copyright"} &copy; {$smarty.now|date_format:"%Y"} <a href="{link path="home"}">GATOR</a></p>
         </div>
         {asset name="Foot"}
       </div>
