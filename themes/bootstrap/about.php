@@ -24,6 +24,7 @@ $ThemeInfo['bootstrap'] = array(
       'Journal'   => '%s_journal',
       'Lumen'     => '%s_lumen',
       'Readable'  => '%s_readable',
+      'Sandstone' => '%s_sandstone',
       'Simplex'   => '%s_simplex',
       'Slate'     => '%s_slate',
       'Spacelab'  => '%s_spacelab',
