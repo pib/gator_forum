@@ -1,3 +1,8 @@
 puphpet/files/dot/ssh/*
 .vagrant
 .elasticbeanstalk/
+cache/Smarty
+cache/*.ini
+uploads/
+themes/bootstrap/bower_components/
+themes/bootstrap/node_modules/
