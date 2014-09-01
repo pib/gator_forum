@@ -18,8 +18,8 @@ $Configuration['EnabledPlugins']['GettingStarted'] = 'GettingStarted';
 $Configuration['EnabledPlugins']['HtmLawed'] = 'HtmLawed';
 $Configuration['EnabledPlugins']['ButtonBar'] = TRUE;
 $Configuration['EnabledPlugins']['VanillaStats'] = TRUE;
-$Configuration['EnabledPlugins']['FileUpload'] = TRUE;
 $Configuration['EnabledPlugins']['ProfileExtender'] = TRUE;
+$Configuration['EnabledPlugins']['FileUpload'] = TRUE;
 
 // Garden
 $Configuration['Garden']['Title'] = 'GATOR';
@@ -59,10 +59,10 @@ $Configuration['Plugins']['GettingStarted']['Dashboard'] = '1';
 $Configuration['Plugins']['GettingStarted']['Plugins'] = '1';
 $Configuration['Plugins']['GettingStarted']['Categories'] = '1';
 $Configuration['Plugins']['GettingStarted']['Discussion'] = '1';
-$Configuration['Plugins']['FileUpload']['Enabled'] = TRUE;
 $Configuration['Plugins']['ProfileExtender']['ProfileFields'] = 'Location,Facebook,Twitter,Website';
 $Configuration['Plugins']['ProfileExtender']['RegistrationFields'] = 'Location';
 $Configuration['Plugins']['ProfileExtender']['TextMaxLength'] = 140;
+$Configuration['Plugins']['FileUpload']['Enabled'] = TRUE;
 
 // Routes
 $Configuration['Routes']['DefaultController'] = 'discussions';
@@ -75,4 +75,4 @@ $Configuration['Vanilla']['Categories']['MaxDisplayDepth'] = '3';
 $Configuration['Vanilla']['Categories']['DoHeadings'] = '1';
 $Configuration['Vanilla']['Categories']['HideModule'] = FALSE;
 
-// Last edited by pib (10.0.2.2)2014-08-26 03:11:10
+// Last edited by pib (10.0.2.2)2014-09-01 22:03:03
